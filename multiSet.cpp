@@ -85,6 +85,24 @@ int main(){
 	cout << "Size of Multiset2 (After deletion): " << set2.size() << endl;
 	cout << endl;
 
+	// Search for a value in set1 and 2
+	int val = 10;
+	cout << "Searching for value " << val << endl;
+
+	// In set1
+	if(set1.find(val) != set1.end())
+		cout << "Multiset1 contains " << val << endl;
+	else
+		cout << "Multiset1 does not contain " << val << endl;
+
+	// In set2
+	if(set2.find(val) != set2.end())
+		cout << "Multiset2 contains " << val << endl;
+	else
+		cout << "Multiset2 does not contain " << val << endl;
+
+	cout << endl;
+
 	// Clear the sets
 	cout << "Clearing all Multisets." << endl;
 	set1.clear();
