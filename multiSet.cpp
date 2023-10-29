@@ -12,32 +12,37 @@ int main(){
 	multiset<int, greater<int>> set1;
 
 	// Insert elements in random order
-	set1.insert(12);
-	set1.insert(25);
-	set1.insert(39);
-	set1.insert(7);
-	set1.insert(4);
+	set1.insert(10);
+	set1.insert(20);
+	set1.insert(30);
+	set1.insert(40);
+	set1.insert(50);
 
-	// Add a duplicate value to signify
+	// Add duplicate values to signify
 	// that it is a multiset instead of a
 	// set. (In sets, duplicate values can
 	// not be stored. This is the main 
 	// difference between sets and multisets)
-	set1.insert(7);
+	set1.insert(10);
+	set1.insert(50);
+	set1.insert(50);
 
 	// Copy the elements from set1 into
 	// set2 (This will store the elements 
 	// in increasing order)
 	multiset<int> set2(set1.begin(), set1.end());
 	
-	// Create an iterator to cycle through 
-	// the values to print all items in 
-	// the multiset1 
+	// Create an iterator
 	multiset<int>::iterator itr;
+
+	// Cycle through the values to print
+	// all items in multiset1
 	cout << "Multiset1 (Decreasing order): ";
 	for(itr = set1.begin(); itr != set1.end(); ++itr){
 		cout << *itr << " ";
 	}
+	cout << endl;
+	cout << "Size of Multiset1: " << set1.size() << endl;
 	cout << endl;
 
 	// Cycle through the values to print 
@@ -47,6 +52,51 @@ int main(){
 		cout << *itr << " ";
 	}
 	cout << endl;
+	cout << "Size of Multiset2: " << set2.size() << endl;
+        cout << endl;
+
+	// Delete all instances of a duplicate number in set1
+	cout << "Deleting duplicate value 10 from Multiset1." << endl;
+	int set1Num;
+	set1Num = set1.erase(10);
+	cout << set1Num << " values deleted." << endl << endl;
+
+	// Delete all instances of a duplicate number in set2
+	cout << "Deleting duplicate value 50 from Multiset2." << endl;
+	int set2Num;
+	set2Num = set2.erase(50);
+	cout << set2Num << " values deleted." << endl << endl;
+
+	// Print out set1 again to show deleted value
+	cout << "Multiset1 (Decreasing order): ";
+	for(itr = set1.begin(); itr != set1.end(); ++itr){
+		cout << *itr << " ";
+	}
+	cout << endl;
+	cout << "Size of Multiset1 (After deletion): " << set1.size() << endl;
+	cout << endl;
+
+	// Print out set2 again to show deleted value
+	cout << "Multiset2 (Increasing order): ";
+	for(itr = set2.begin(); itr != set2.end(); ++itr){
+		cout << *itr << " ";
+	}
+	cout << endl;
+	cout << "Size of Multiset2 (After deletion): " << set2.size() << endl;
+	cout << endl;
+
+	// Clear the sets
+	cout << "Clearing all Multisets." << endl;
+	set1.clear();
+	set2.clear();
+	
+	if(set1.empty() == true){
+		cout << "Multiset1 is now empty." << endl;
+	}
+
+	if(set2.empty() == true){
+		cout << "Multiset2 is now empty." << endl;
+	}
 
 	return 0;
 }
